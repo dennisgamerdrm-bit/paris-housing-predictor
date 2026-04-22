@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: paris_housing_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # VOLUMEN PARA LA BASE DE DATOS (Persistente pero NO en el código)
+      - predicciones_data:/app/data
+      # VOLUMEN PARA MODELOS (Estos SÍ van en el código, pero montados para desarrollo)
+      - ./modelos_entrenados:/app/modelos_entrenados:ro  # ro = read-only (más seguro)
+    environment:
+      - DB_PATH=/app/data/predicciones.db
+      - MODELOS_PATH=/app/modelos_entrenados
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: paris_housing_frontend
+    ports:
+      - "8501:8501"
+    environment:
+      - BACKEND_URL=http://backend:8000
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
+
+# DEFINICIÓN DE VOLUMEN NOMBRADO (Gestionado por Docker, NO está en tu carpeta de código)
+volumes:
+  predicciones_data:
+    driver: local
+    name: paris_housing_data  # Nombre fijo para fácil identificación

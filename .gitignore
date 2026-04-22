@@ -1,0 +1,33 @@
+# Datos persistentes (CADA USUARIO GENERA EL SUYO)
+data_persistente/
+*.db
+*.sqlite
+*.sqlite3
+
+# Entornos virtuales
+venv/
+env/
+.venv/
+.env
+
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDEs
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+*checkpoint*
+
+# Docker (opcional, si usas volúmenes nombrados)
+# .docker/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
