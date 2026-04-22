@@ -8,8 +8,6 @@
 
 **Sistema de predicción de precios inmobiliarios en París usando Machine Learning (Random Forest) con API REST, interfaz web y procesamiento batch.**
 
-![Demo](https://via.placeholder.com/800x400/1a1a2e/ffffff?text=Paris+Housing+Predictor+Demo)
-
 ---
 
 ## 📋 Tabla de Contenidos
@@ -76,7 +74,7 @@ docker-compose up -d
 # Frontend: http://localhost:8501
 # API Docs: http://localhost:8000/docs
 
-Método 2: Desarrollo Local (Sin Docker)
+### Método 2: Desarrollo Local (Sin Docker)
 
 # 1. Crear entorno virtual
 python -m venv venv
