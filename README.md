@@ -59,7 +59,7 @@
 
 ### Método 1: Con Docker (Recomendado)
 
-```bash
+```
 # 1. Clonar el repositorio
 git clone https://github.com/tu-usuario/paris-housing-predictor.git
 cd paris-housing-predictor
@@ -73,9 +73,9 @@ docker-compose up -d
 # 4. Acceder a la aplicación
 # Frontend: http://localhost:8501
 # API Docs: http://localhost:8000/docs
-
+```
 ### Método 2: Desarrollo Local (Sin Docker)
-
+```
 # 1. Crear entorno virtual
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
@@ -94,10 +94,11 @@ python main.py
 # 5. Iniciar Frontend (Terminal 2)
 cd frontend
 streamlit run app.py
-
-📖 Uso
+```
+#### 📖 Uso
 
 🏢 Predicción Individual
+```
 1.  Accede a http://localhost:8501
 
 2.  Completa el formulario con las características de la propiedad:
@@ -121,8 +122,9 @@ streamlit run app.py
 3.  Haz clic en "Valorar propiedad"
 
 4.  Obtén el precio estimado con rango de confianza
-
+```
 📁 Procesamiento Batch (CSV)
+```
 1.  Prepara un archivo CSV con las siguientes columnas:
 Arrondissement,Size_sqm,Rooms,Floor,Year_Built,Distance_to_Center_km,Property_Type,Condition
 2.  Ve a la pestaña "Procesamiento Batch"
@@ -136,8 +138,9 @@ Arrondissement,Size_sqm,Rooms,Floor,Year_Built,Distance_to_Center_km,Property_Ty
 8,120,4,3,1995,2.5,Apartment,Good
 18,30,1,2,1980,5.0,Studio,Needs Renovation
 16,180,5,8,2010,4.0,Penthouse,New
-
+```
 📁 Estructura del Proyecto
+```
 .
 ├── backend/                    # API FastAPI
 │   ├── main.py                # Código principal del servidor
@@ -163,8 +166,9 @@ Arrondissement,Size_sqm,Rooms,Floor,Year_Built,Distance_to_Center_km,Property_Ty
 ├── .env.example               # Template de variables de entorno
 ├── .gitignore                 # Archivos excluidos de Git
 └── README.md                  # Este archivo
-
+```
 🔌 API Endpoints
+```
 POST /predict
 Predice el precio de una única propiedad.
 
@@ -217,8 +221,9 @@ Response:
   "modelo": "Random Forest (Paris Housing) Pro",
   "db_connected": true
 }
-
+```
 🧪 Entrenamiento del Modelo
+```
 El modelo fue entrenado con el dataset Paris Housing Prices (1,200 registros) de Kaggle.
 
 Métricas de rendimiento:
@@ -242,8 +247,9 @@ Para reentrenar el modelo con nuevos datos:
 cd notebooks
 jupyter notebook 01_entrenamiento.ipynb
 # Ejecutar todas las celdas y verificar que se generan los .pkl en modelos_entrenados/
-
+```
 🐳 Despliegue con Docker
+```
 Construir y levantar
     docker-compose up --build -d
 
@@ -259,8 +265,9 @@ Detener y eliminar todo (incluyendo base de datos)
 
 Verificar volúmenes
     docker volume ls | grep paris_housing
-
+```
 🤝 Contribuciones
+```
 ¡Las contribuciones son bienvenidas! Para contribuir:
 
 1.  Haz un Fork del repositorio
@@ -276,11 +283,13 @@ Verificar volúmenes
     Migrar a PostgreSQL para producción
     Añadir tests unitarios con pytest
     Desplegar en la nube (Render, Railway, AWS)
-
+```
 📄 Licencia
+```
 Este proyecto está bajo la Licencia MIT. Ver archivo [LICENSE](LICENSE) para más detalles.
-
+```
 ⭐ Agradecimientos
+```
     Dataset: Paris Housing Prices
     Inspiración: Proyecto educativo de Machine Learning aplicado
 
